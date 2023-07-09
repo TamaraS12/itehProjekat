@@ -1,0 +1,197 @@
+.background-img {
+    margin: 0;
+    padding: 0;
+    background-image: url('../../../assets/img/pozadina.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    font-family: sans-serif; 
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+.loginbox {
+    width: 320px;
+    height: 420px;
+    background: rgb(252, 252, 252);
+    color: #000;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    border: 1px solid #000;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border: 1px black solid;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.loginbox p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.loginbox input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.loginbox input[type="email"], input[type="password"] {
+    border: none;
+    border-bottom: 1px solid #000;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #000;
+    font-size: 16px;
+}
+
+.loginbox input[type="submit"]{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: rgb(60, 118, 194);
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.loginbox input[type="submit"]:hover{
+    cursor: pointer;
+    background: rgb(30, 70, 122);
+    color: #fff;
+}
+
+.button {
+    width: 100%;
+    margin-bottom: 20px;
+    border: none;
+    outline: none;
+    height: 40px;
+    background: rgb(60, 118, 194);
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.button:hover{
+    cursor: pointer;
+    background: rgb(30, 70, 122);
+    color: #fff;
+}
+
+.loginboxError {
+    width: 320px;
+    height: 270px;
+    background: rgb(252, 252, 252);
+    color: #000;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    border: 1px solid #000;
+}
+
+.error {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0px;
+    left: calc(50% - 50px);
+}
+
+.form {
+	width: 320px;
+    height: 420px;
+    background: rgb(252, 252, 252);
+    color: #000;
+    top: 50%;
+    left: 75%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 30px 30px;
+    border: 1px solid #000;
+}
+
+.form p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.form input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.form input[type="email"], input[type="password"], input[type="text"] {
+    border: none;
+    border-bottom: 1px solid #000;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #000;
+    font-size: 16px;
+}
+
+.form input[type="submit"]{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: rgb(60, 118, 194);
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.form input[type="submit"]:hover{
+    cursor: pointer;
+    background: rgb(30, 70, 122);
+    color: #fff;
+}
+
+
+.loginboxSuccess {
+    width: 320px;
+    height: 270px;
+    background: rgb(252, 252, 252);
+    color: #000;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+    border: 1px solid #000;
+}
+
+.success {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 30px;
+    left: calc(50% - 50px);
+}
+
+.mass {
+    text-align: center;
+}

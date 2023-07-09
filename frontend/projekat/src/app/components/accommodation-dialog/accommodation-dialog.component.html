@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>Add accommodation</h2>
+<mat-dialog-content>
+    <form class="example-form" [formGroup]="form">
+        <mat-form-field class="example-full-width">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Enter accommodation name" formControlName="name">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Location</mat-label>
+            <input matInput placeholder="Enter accommodation location" formControlName="location">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Type</mat-label>
+            <input matInput placeholder="Enter accommodation type" formControlName="type">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Capacity</mat-label>
+            <input matInput placeholder="Enter accommodation capacity" formControlName="capacity">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Price per person</mat-label>
+            <input matInput placeholder="Enter accommodation price per person" formControlName="price_per_person">
+        </mat-form-field>
+
+        <div>
+            <label for="inputFile">Upload image</label>
+            <input type="file" id="inputFile" (change)="setImage($event)">
+        </div>
+        
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div>
+        <button mat-button mat-dialog-close>Cancel</button>
+        <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+        <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="saveAccommodation()">Save</button>
+    </div>
+</mat-dialog-actions>

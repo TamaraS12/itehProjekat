@@ -1,0 +1,67 @@
+<p-toast></p-toast>
+
+<p-table [value]="bookings" [paginator]="true" [rows]="5" [globalFilterFields]="['user.name', 'accommodation.name']" #dt>
+    <ng-template pTemplate="caption">
+        <div class="flex button-container">
+            <span class="p-input-icon-left ml-auto">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="handleInput($event)" placeholder="Search" />
+            </span>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+        <th pSortableColumn="user.name">
+            User
+            <p-sortIcon field="user.name"></p-sortIcon>
+        </th>
+        <th pSortableColumn="accommodation.name">
+            Accommodation
+            <p-sortIcon field="accommodation.name"></p-sortIcon>
+        </th>
+        <th pSortableColumn="date_from">
+            Date from
+            <p-sortIcon field="date_from"></p-sortIcon>
+        </th>
+        <th pSortableColumn="date_to">
+            Date to
+            <p-sortIcon field="date_to"></p-sortIcon>
+        </th>
+        <th pSortableColumn="number_of_persons">
+            Number of persons
+            <p-sortIcon field="number_of_persons"></p-sortIcon>
+        </th>
+        <th pSortableColumn="price">
+            Price
+            <p-sortIcon field="price"></p-sortIcon>
+        </th>
+        <th style="width: 100px;" *ngIf="loggedInUser.role_id === 2"></th>
+    </ng-template>
+    <ng-template pTemplate="body" let-booking>
+        <tr>
+            <td>{{booking.user.name}}</td>
+            <td>{{booking.accommodation.name}}</td>
+            <td>{{booking.date_from | date}}</td>
+            <td>{{booking.date_to | date}}</td>
+            <td>{{booking.number_of_persons | number: '1.0-0'}}</td>
+            <td>{{booking.price | tax}}</td>
+            <td  *ngIf="loggedInUser.role_id === 2">
+                <button mat-fab color="primary" (click)="editBooking(booking)">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<div>
+    <div style="display: flex; justify-content: center;">
+        <h5>Book your favourite accommodations from here!</h5>
+    </div>
+    <div class="container">
+        <app-accommodation-card *ngFor="let accommodation of accommodations" 
+        [accommodation]="accommodation"
+        [loggedUserRole]="loggedInUser.role_id"
+        (accommodationClicked)="handleAccommodationClicked(accommodation)">
+        </app-accommodation-card>
+    </div>
+</div>

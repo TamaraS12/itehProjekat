@@ -1,0 +1,20 @@
+<div class="background-img">
+    <div class="form">
+        <div class="content">
+            <div class="loginbox">
+                <img src="../../../assets/img/avatar.jpg" class="avatar">
+                <h1>Login</h1>
+                <form  method="post" (ngSubmit)="onSubmit()"  [formGroup]="loginForm">
+                    <p>Username</p>
+                    <input type="text" placeholder="Enter username" required formControlName="email">
+                    <p>Password</p>
+                    <input type="password" placeholder="Enter password" required formControlName="password">
+                    <input type="submit" value="Login">
+                </form>
+    
+    
+            </div>
+            
+        </div>
+    </div>
+</div>

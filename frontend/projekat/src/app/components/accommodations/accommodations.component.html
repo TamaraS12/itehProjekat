@@ -1,0 +1,15 @@
+<p-toast></p-toast>
+<div class="btn-container" *ngIf="loggedUserRole && loggedUserRole === 1">
+    <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="addAccommodation()">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
+
+<div class="container">
+    <app-accommodation-card *ngFor="let accommodation of accommodations"
+     [accommodation]="accommodation"
+     [loggedUserRole]="loggedUserRole"
+     (accommodationClicked)="handleAccommodationClicked(accommodation)"
+     (accommodationDelete)="handleAccommodationDelete(accommodation)">
+    </app-accommodation-card>
+</div>

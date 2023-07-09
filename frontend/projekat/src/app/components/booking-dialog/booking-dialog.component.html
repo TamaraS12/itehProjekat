@@ -1,0 +1,43 @@
+<h2 mat-dialog-title>Add accommodation</h2>
+<mat-dialog-content>
+    <form class="example-form" [formGroup]="form">
+        <mat-form-field class="example-full-width">
+            <mat-label>Number of persons</mat-label>
+            <input matInput placeholder="Enter number of persons" formControlName="number_of_persons">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Date from</mat-label>
+            <input matInput [matDatepicker]="dateFromPicker" formControlName="date_from">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="dateFromPicker"></mat-datepicker-toggle>
+            <mat-datepicker #dateFromPicker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Date to</mat-label>
+            <input matInput [matDatepicker]="dateToPicker" formControlName="date_to">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="dateToPicker"></mat-datepicker-toggle>
+            <mat-datepicker #dateToPicker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Price</mat-label>
+            <input matInput placeholder="Enter price" formControlName="price">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>User</mat-label>
+            <input matInput placeholder="Enter price" formControlName="user">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Accommodation</mat-label>
+            <input matInput placeholder="Enter price" formControlName="accommodation">
+        </mat-form-field>
+        
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div>
+        <button mat-button mat-dialog-close>Cancel</button>
+        <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+        <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="saveBooking()">Save</button>
+    </div>
+</mat-dialog-actions>
