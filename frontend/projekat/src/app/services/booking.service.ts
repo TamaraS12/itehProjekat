@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Booking } from '../model/booking';
+import { BookingStatistics } from '../model/booking-statistics';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,8 @@ export class BookingService {
 
   getUserBookings(userId: number): Observable<Booking[]> {
     return this.httpClient.get<Booking[]>(this.url + 'bookings/user/' + userId);
+  }
+  getBookingsStatistics(): Observable<BookingStatistics[]> {
+    return this.httpClient.get<BookingStatistics[]>(this.url + 'bookings/statistics');
   }
 }

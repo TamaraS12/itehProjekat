@@ -27,6 +27,7 @@ Route::get('/accommodations/{id}', [AccommodationController::class, 'show'])->na
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/bookings/statistics', [BookingController::class, 'getBookingCountPerAccommodation'])->name('bookings.statistics');
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/profile', function (Request $request) {

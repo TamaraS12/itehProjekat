@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class BookingController extends Controller
@@ -99,9 +100,20 @@ class BookingController extends Controller
         //
     }
 
-    public function getByUser(string $id) {
+    public function getByUser(string $id)
+    {
         $bookings = Booking::with('accommodation', 'user')->where('user_id', $id)->get();
 
         return $bookings;
+    }
+
+    public function getBookingCountPerAccommodation()
+    {
+
+        $user_info = DB::table('bookings')->join('accommodations', 'accommodations.id', '=', 'bookings.accommodation_id')
+            ->select('accommodations.id as id','accommodations.name as title', DB::raw('count(bookings.accommodation_id) as total'))
+            ->groupBy('accommodations.id', 'accommodations.name')
+            ->get();
+        return $user_info;
     }
 }

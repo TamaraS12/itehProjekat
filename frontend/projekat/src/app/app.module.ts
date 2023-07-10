@@ -26,6 +26,7 @@ import { BookingDialogComponent } from './components/booking-dialog/booking-dial
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { InputTextModule } from 'primeng/inputtext';
+import { BookingStatisticsComponent } from './components/booking-statistics/booking-statistics.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { InputTextModule } from 'primeng/inputtext';
     LoginComponent,
     HomeComponent,
     AccommodationDialogComponent,
-    BookingDialogComponent
+    BookingDialogComponent,
+    BookingStatisticsComponent
   ],
   imports: [
     BrowserModule,
