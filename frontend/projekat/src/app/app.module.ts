@@ -27,6 +27,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { InputTextModule } from 'primeng/inputtext';
 import { BookingStatisticsComponent } from './components/booking-statistics/booking-statistics.component';
+import { ChartModule } from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { BookingStatisticsComponent } from './components/booking-statistics/book
     ToastModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    InputTextModule
+    InputTextModule,
+    ChartModule
   ],
   providers: [
     {

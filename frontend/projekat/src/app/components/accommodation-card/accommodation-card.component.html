@@ -9,6 +9,6 @@
 
     <div class="btn-container">
       <a class="btn btn-primary" style="margin-right: 5px;" (click)="handleClick()">{{loggedUserRole === 1 ? 'Edit' : 'Book'}}</a>
-      <a class="btn btn-danger" (click)="handleDelete()">{{'Delete'}}</a>
+      <a class="btn btn-danger" (click)="handleDelete()" *ngIf="loggedUserRole === 1">{{'Delete'}}</a>
     </div>
 </div>

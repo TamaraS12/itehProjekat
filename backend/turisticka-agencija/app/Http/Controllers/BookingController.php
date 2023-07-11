@@ -50,7 +50,7 @@ class BookingController extends Controller
             'accommodation_id' => $request->accommodation_id
         ]);
 
-        return response()->json($booking);
+        return response()->json(Booking::with('accommodation', 'user')->find($booking->id));
     }
 
     /**

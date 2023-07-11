@@ -25,9 +25,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/accommodations', [AccommodationController::class, 'index'])->name('accommodations.index');
 Route::get('/accommodations/{id}', [AccommodationController::class, 'show'])->name('accommodations.show');
 
-Route::post('/register', [AuthController::class, 'register']);
+
 Route::post('/login', [AuthController::class, 'login']);
-Route::get('/bookings/statistics', [BookingController::class, 'getBookingCountPerAccommodation'])->name('bookings.statistics');
+
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/profile', function (Request $request) {
@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/bookings/{id}', [BookingController::class, 'show'])->name('bookings.show');
     Route::post('/bookings/add', [BookingController::class, 'store'])->name('bookings.store');
     Route::put('/bookings/update/{id}', [BookingController::class, 'update'])->name('bookings.update');
+    Route::get('/bookings/statistics', [BookingController::class, 'getBookingCountPerAccommodation'])->name('bookings.statistics');
 
     Route::post('/logout', [AuthController::class, 'logout']);
 });

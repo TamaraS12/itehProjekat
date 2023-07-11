@@ -5,15 +5,16 @@ import { BookingStatisticsComponent } from './components/booking-statistics/book
 import { BookingsComponent } from './components/bookings/bookings.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { authGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   
 
   {path: '' , component: HomeComponent, children: [
-    {path: 'accommodations', component: AccommodationsComponent},
-    {path: 'bookings', component: BookingsComponent},
-    {path: 'statistics', component: BookingStatisticsComponent},
+    {path: 'accommodations', component: AccommodationsComponent, canActivate:[authGuard]},
+    {path: 'bookings', component: BookingsComponent, canActivate:[authGuard]},
+    {path: 'statistics', component: BookingStatisticsComponent, canActivate:[authGuard]},
   ]}
 ];
 
