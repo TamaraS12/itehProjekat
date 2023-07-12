@@ -30,10 +30,10 @@ export class AccommodationsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.loggedUserRole = Number(localStorage.getItem('role'));
+   
 
     this.accommodationService.getAccommodations().subscribe((response) => {
-      console.log(response);
+      
       this.accommodations = response;
     })
     

@@ -50,7 +50,7 @@ export class BookingDialogComponent implements OnInit {
 
     this.form.valueChanges.pipe(debounceTime(300)).subscribe((formValues) => {
       if (formValues.number_of_persons) {
-        console.log('promena: ' + formValues);
+       
         this.form.patchValue({
           price: this.data.accommodation.price_per_person * Number(formValues.number_of_persons)
         })

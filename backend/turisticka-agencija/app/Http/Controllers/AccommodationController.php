@@ -110,7 +110,7 @@ class AccommodationController extends Controller
         $accommodation->type = $request->type;
         $accommodation->capacity = $request->capacity;
         $accommodation->price_per_person = $request->price_per_person;
-        $accommodation->photo = $request->photo;
+       
 
         $accommodation->save();
 
