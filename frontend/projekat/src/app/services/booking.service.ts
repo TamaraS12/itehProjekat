@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Booking } from '../model/booking';
@@ -8,9 +8,6 @@ import { BookingStatistics } from '../model/booking-statistics';
   providedIn: 'root'
 })
 export class BookingService {
-  // bookings: Booking[] = [];
-
-  // bookingsUpdated = new BehaviorSubject<Booking[]>([]);
 
   private url: string = 'http://127.0.0.1:8000/api/';
 
@@ -31,7 +28,11 @@ export class BookingService {
   getUserBookings(userId: number): Observable<Booking[]> {
     return this.httpClient.get<Booking[]>(this.url + 'bookings/user/' + userId);
   }
+ 
   getBookingsStatistics(): Observable<BookingStatistics[]> {
     return this.httpClient.get<BookingStatistics[]>(this.url + 'bookings/statistics');
+  }
+  convertBookingPrice(price: number, currency: string): Observable<any> {  
+    return this.httpClient.get<any>(this.url + 'currency/convert/' + currency + '/' +price);
   }
 }

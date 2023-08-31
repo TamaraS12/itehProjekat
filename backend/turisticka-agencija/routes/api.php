@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccommodationController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CurrencyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -44,7 +45,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/bookings/{id}', [BookingController::class, 'show'])->name('bookings.show');
     Route::post('/bookings/add', [BookingController::class, 'store'])->name('bookings.store');
     Route::put('/bookings/update/{id}', [BookingController::class, 'update'])->name('bookings.update');
-    
+    Route::get('/currency/convert/{currency}/{value}', [CurrencyController::class, 'convertValue'])->name('currency.convert');
 
     Route::post('/logout', [AuthController::class, 'logout']);
 });

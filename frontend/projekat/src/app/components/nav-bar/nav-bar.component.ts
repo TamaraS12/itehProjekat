@@ -11,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-  totalPrice: number = 0;
+  
   user: User;
 
   constructor(private bookingService: BookingService,
@@ -21,10 +21,7 @@ export class NavBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.bookingService.bookingsUpdated.subscribe((updatedBookingList) => {
-    //   this.totalPrice = updatedBookingList.reduce((previousValue, currentValue) => previousValue + (currentValue.price + currentValue.price * 0.2), 0);
-    // })
-
+    
     this.userService.getUser().subscribe((response)=> {
       console.log(response);
       this.user = response;

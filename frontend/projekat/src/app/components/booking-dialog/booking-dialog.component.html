@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Add accommodation</h2>
+<h2 mat-dialog-title>Add booking</h2>
 <mat-dialog-content>
     <form class="example-form" [formGroup]="form">
         <mat-form-field class="example-full-width">
@@ -11,18 +11,33 @@
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="dateFromPicker"></mat-datepicker-toggle>
             <mat-datepicker #dateFromPicker></mat-datepicker>
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
             <mat-label>Date to</mat-label>
             <input matInput [matDatepicker]="dateToPicker" formControlName="date_to">
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="dateToPicker"></mat-datepicker-toggle>
             <mat-datepicker #dateToPicker></mat-datepicker>
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <mat-label>Price</mat-label>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Currency</mat-label>
+            <mat-select formControlName="currency" (selectionChange)="convertPrice($event)">
+                <mat-option *ngFor="let currency of currencies " [value]="currency.code">
+                    {{currency.text}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    
+        <mat-form-field class="example-full-width">
+            <mat-label>Price In RSD</mat-label>
             <input matInput placeholder="Enter price" formControlName="price">
         </mat-form-field>
+
+        <mat-form-field class="example-full-width" *ngIf="selectedCurrency">
+            <mat-label>Price In {{selectedCurrency}}</mat-label>
+            <input matInput placeholder="Enter price" formControlName="convertedPrice">
+        </mat-form-field>
+
         <mat-form-field class="example-full-width">
             <mat-label>User</mat-label>
             <input matInput placeholder="Enter price" formControlName="user">
@@ -31,7 +46,7 @@
             <mat-label>Accommodation</mat-label>
             <input matInput placeholder="Enter price" formControlName="accommodation">
         </mat-form-field>
-        
+
     </form>
 </mat-dialog-content>
 <mat-dialog-actions>
